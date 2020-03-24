@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      redirect_to login_path, flash[:notice] =  {username: ["doesn't exist"]}
+      redirect_to login_path, flash.now[:notice] =  {username: ["doesn't exist"]}
     end
   end
 

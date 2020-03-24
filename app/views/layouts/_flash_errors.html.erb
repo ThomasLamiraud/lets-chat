@@ -1,5 +1,5 @@
 <% if flash.notice %>
-  <div>
+  <div class="alert alert-danger" role="alert">
       <% flash.notice.each do |type, messages|%>
         <%messages.each do |msg|%>
           <%=type%> <%=msg%>

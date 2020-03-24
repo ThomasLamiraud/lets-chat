@@ -11,7 +11,7 @@ class RegistrationsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      redirect_to signup_path, flash[:notice] =  user.errors.messages
+      redirect_to signup_path, flash.now[:notice] =  user.errors.messages
     end
   end
 

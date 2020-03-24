@@ -1,21 +1,12 @@
-<div>
-  <div>
+<h2 class="mt-3">Sign up</h2>
 
-    <h2 id="log-in-title">Sign up</h2>
-    <div>
-    <%= form_for @user, url: signup_path, method: :post do |f| %>
-      <%=f.label :username%>
-      <div>
-        <span>
-          <%= f.text_field :username %>
-      </div>
+<%= render partial: 'layouts/flash_errors'%>
 
-      <div>
-        <%= f.submit "sign up" %>
-      </div>
-    <% end %>
-    </div>
-
-      <%= render partial: 'layouts/flash_errors'%>
+<%= form_for @user, url: signup_path, method: :post do |f| %>
+  <div class="form-group">
+    <%=f.label :username%>
+    <%= f.text_field :username, class: "form-control", placeholder: "Enter username" %>
   </div>
-</div>
+
+  <%= f.submit "sign up", class: "btn btn-primary" %>
+<% end %>

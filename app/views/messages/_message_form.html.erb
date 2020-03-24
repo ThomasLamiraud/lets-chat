@@ -1,6 +1,12 @@
 <%=form_for message, remote: true, authenticity_token: true do |f|%>
-  <%= f.label :your_message%>:
-  <%= f.text_area :content, class: "form-control", data: { textarea: "message" }%>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Your Message</span>
+    </div>
+
+    <%= f.text_field :content, class: "form-control", data: { textarea: "message" }%>
+  </div>
+
 
   <%= f.hidden_field :chatroom_id, value: chatroom.id %>
   <%= f.submit "send", class: "btn btn-primary", style: "display: none", data: { send: "message" }%>

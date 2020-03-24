@@ -1,11 +1,10 @@
-<div>
-  <h1><%= @chatroom.topic %></h1>
+<h2 class="mt-3 text-center"><%= @chatroom.topic %></h2>
 
 <div>
   <% if @chatroom.messages.any? %>
-    <div id="messages">
+    <ul class="list-group list-group-flush" id="messages">
       <%= render partial: 'messages/message', collection: @chatroom.messages%>
-    </div>
+    </ul>
   <% else %>
     <div id="messages">
     </div>

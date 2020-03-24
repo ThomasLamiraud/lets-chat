@@ -1,19 +1,7 @@
 class ChatroomsController < ApplicationController
 
-  def index
-    @chatroom = Chatroom.new
-    @chatrooms = Chatroom.all
-  end
-
   def new
-    if request.referrer.split("/").last == "chatrooms"
-      flash[:notice] = nil
-    end
     @chatroom = Chatroom.new
-  end
-
-  def edit
-    @chatroom = Chatroom.find_by(slug: params[:slug])
   end
 
   def create
@@ -24,7 +12,7 @@ class ChatroomsController < ApplicationController
       end
     else
       respond_to do |format|
-        flash[:notice] = {error: ["a chatroom with this topic already exists"]}
+        flash.now[:notice] = {error: ["a chatroom with this topic already exists"]}
         format.html { redirect_to new_chatroom_path }
       end
     end
