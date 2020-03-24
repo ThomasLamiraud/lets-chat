@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password:
+  host: docker
+  reconnect: false
+  port: 5432
+
+development:
+  <<: *default
+  database: lets_chat_development
+
+test:
+  <<: *default
+  database: lets_chat_test
+
+production:
+  <<: *default
+  database: lets_chat_production
+  username: lets_chat
+  password: <%= ENV['MY-APP-API_DATABASE_PASSWORD'] %>

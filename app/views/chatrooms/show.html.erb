@@ -1,0 +1,17 @@
+<div>
+  <h1><%= @chatroom.topic %></h1>
+
+<div>
+  <% if @chatroom.messages.any? %>
+    <div id="messages">
+      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+    </div>
+  <% else %>
+    <div id="messages">
+    </div>
+  <%end%>
+</div>
+
+
+  <%= render partial: 'messages/message_form', locals: { message: @message, chatroom: @chatroom }%>
+</div>

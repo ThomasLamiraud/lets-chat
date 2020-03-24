@@ -1,0 +1,21 @@
+<div>
+  <div>
+
+    <h2 id="log-in-title">Sign up</h2>
+    <div>
+    <%= form_for @user, url: signup_path, method: :post do |f| %>
+      <%=f.label :username%>
+      <div>
+        <span>
+          <%= f.text_field :username %>
+      </div>
+
+      <div>
+        <%= f.submit "sign up" %>
+      </div>
+    <% end %>
+    </div>
+
+      <%= render partial: 'layouts/flash_errors'%>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <h2 id="log-in-title">Create a Chatroom</h2>
+    <div>
+    <%= form_for @chatroom, url: chatrooms_path, method: :post do |f| %>
+      <%=f.label :topic%>
+      <div>
+        <span>
+          <%= f.text_field :topic %>
+      </div>
+
+      <%=f.label :slug%>
+      <div>
+        <span>
+          <%= f.text_field :slug %>
+      </div>
+
+      <div>
+        <%= f.submit "Create" %>
+      </div>
+    <% end %>
+    </div>
+
+      <%= render partial: 'layouts/flash_errors'%>
+  </div>
+</div>
